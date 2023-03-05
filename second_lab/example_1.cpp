@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <cmath>r
+#include <cmath>
 
 #define N 5
 using namespace std;
