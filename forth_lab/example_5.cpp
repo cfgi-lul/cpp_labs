@@ -3,14 +3,13 @@
 using namespace std;
 
 int main() {
-    // создаем массив strs из трех указателей на символы
     const int n = 3;
     char *strs[n];
     int stringLength3(char *);
     void memCopy(char *, char *, size_t);
 
     for (int i = 0; i < n; i++) {
-        strs[i] = (char *) calloc(100, sizeof(char)); // выделяем память с помощью функции calloc()
+        strs[i] = (char *) calloc(100, sizeof(char));
     }
 
     memCopy("qwer", strs[0], sizeof("qwer"));
@@ -21,12 +20,12 @@ int main() {
     cout << stringLength3(strs[1]) << endl;
     cout << stringLength3(strs[2]) << endl;
 
-    for (int i = 0; i < n; i++) { // вывод в консоль 
+    for (int i = 0; i < n; i++) {
         cout << strs[i] << " ";
     }
 
     for (int i = 0; i < n; i++) {
-        free(strs[i]); // освобождаем память, выделенную для каждой строки функцией free()
+        free(strs[i]);
     }
 
     return 0;
