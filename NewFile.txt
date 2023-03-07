@@ -1,0 +1,2 @@
+This line is written to a new file
+We added some things
