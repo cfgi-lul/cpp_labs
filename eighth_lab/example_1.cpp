@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -67,7 +68,12 @@ public:
     }
 
     ~NewString() { delete _string; }
+
+    friend ostream &operator<<(ostream &, NewString &);
+
+    friend istream &operator>>(istream &, NewString &);
 };
+
 
 NewString operator+(const NewString &lhs, const NewString &rhs) {
     int length = strlen(lhs._string) + strlen(rhs._string);
@@ -96,15 +102,25 @@ NewString &NewString::operator=(const NewString &s) {
     return *this;
 }
 
+ostream &operator<<(ostream &os, NewString &str) {
+    os << str.getString();
+    return os;
+}
+
+istream &operator>>(istream &is, NewString &str) {
+    string temp;
+    is >> str._string;
+
+    return is;
+}
+
 int main() {
     char *temp = "asdf";
     NewString str(temp);
 
-    cout << str.getString() << endl;
+    cout << str << endl;
+    cin >> str;
 
-    char n[100];
-    cin >> n;
-    str.setString(n);
     cout << str.getString() << endl;
 
     return 0;

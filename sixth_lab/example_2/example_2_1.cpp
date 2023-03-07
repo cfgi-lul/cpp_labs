@@ -5,10 +5,10 @@ using namespace std;
 
 class NewString {
 public:
-    bool operator == (const NewString &s){
+    bool operator==(const NewString &s) {
         bool res = true;
         int i = 0;
-        while((s._string[i]!=0)&& (_string[i]!=0)){
+        while ((s._string[i] != 0) && (_string[i] != 0)) {
             res &= s._string[i] == _string[i];
             i++;
         }
