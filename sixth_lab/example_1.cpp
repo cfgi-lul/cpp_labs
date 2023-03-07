@@ -10,6 +10,9 @@ public:
     bool operator == (const NewString &s){
         bool res = true;
         int i = 0;
+        if (strlen(s._string) != strlen(_string)){
+            return false;
+        }
         while((s._string[i]!=0)&& (_string[i]!=0)){
             res &= s._string[i] == _string[i];
             i++;
@@ -99,7 +102,7 @@ int main() {
     NewString str(temp);
     NewString str2(temp1);
     NewString str3;
-    str3 = str;
+    str3 = str2 + str;
 
     cout << str.getString() << endl;
     cout << str2.getString() << endl;
@@ -109,6 +112,9 @@ int main() {
     cout << str3.getString() << endl;
     cout << str2.getString() << endl;
 
+    cout << "1231231232   " << (str == str2) << endl;
+
+    cout << str3.getString() << " " << str2.getString() << endl;
     cout << (str3 == str2) << endl;
     return 0;
 }
